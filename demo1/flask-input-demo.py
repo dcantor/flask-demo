@@ -16,10 +16,13 @@ def my_form_post():
     vlan = request.form['vlan']
     port = request.form['port']
     print ("the vlan is '" + vlan + "'")
-    f = open("filename.txt", 'a')
-    f.write("server is: " + server + "\n")
-    f.write("vlan is: " + vlan + "\n")
-    f.write("port is: " + port + "\n")
+    filename = server + ".txt"
+    f = open(filename, 'a')
+    f.write("{" + "\n")
+    f.write("""   "server": """ + '"' + server + '"' + "\n")
+    f.write("""   "vlan": """  + vlan + "\n")
+    f.write("""   "port": """ + '"' + port + '"' + "\n")
+    f.write("}" + "\n")
     f.close()
     return redirect('/')
 
