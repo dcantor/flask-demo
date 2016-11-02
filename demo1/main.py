@@ -27,5 +27,9 @@ def shopping():
     food = ["Cheese", "Tuna", "Beef", "Toothpaste"]
     return render_template("shopping.html", food=food)
 
+@app.route('/new_submission/')
+def new_post():
+    return render_template('new_submission.html')
+
 if __name__ == "__main__":
     app.run()
