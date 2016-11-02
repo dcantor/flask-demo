@@ -11,9 +11,10 @@ def my_form():
 @app.route('/', methods=['POST'])
 def my_form_post():
 
-    text = request.form['text']
-    processed_text = text.upper()
-    return processed_text
+    server = request.form['server']
+    vlan = request.form['vlan']
+    port = request.form['port']
+    return "Server:  " + server + "Vlan:  " + vlan + "Port:  " + port
 
 if __name__ == '__main__':
     app.run()
