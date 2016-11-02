@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -19,6 +18,9 @@ def bacon():
 def profile(name):
     return render_template("profile.html", name=name)
 
+@app.route("/double/<int:num>")
+def double(num):
+    return '%s' % (2 * num)
 
 @app.route("/shopping")
 def shopping():
