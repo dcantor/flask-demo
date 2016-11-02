@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -12,6 +12,11 @@ def bacon():
         return "You are using POST"
     else:
         return "You are using GET"
+
+@app.route("/profile/<name>")
+def profile(name):
+    return render_template("profile.html", name=name)
+
 
 if __name__ == "__main__":
     app.run()
